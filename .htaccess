@@ -1,0 +1,28 @@
+# PHP Upload Limits for Large Files (25MB)
+php_value upload_max_filesize 25M
+php_value post_max_size 30M
+php_value max_execution_time 600
+php_value max_input_time 600
+php_value memory_limit 256M
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^\.(htaccess|htpasswd|ini|log|sh|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect database file
+<Files "database.sqlite">
+    Order allow,deny
+    Deny from all
+</Files>

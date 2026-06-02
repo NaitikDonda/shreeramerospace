@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Admin Panel | Shreeram Aerospace & Defence LLP</title>
+
+		<meta name="keywords" content="Admin, Panel, Management, Shreeram Aerospace" />
+		<meta name="description" content="Admin panel for managing form submissions">
+		<meta name="author" content="Shreeram Aerospace & Defence LLP">
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+		<!-- Web Fonts  -->
+		<link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/theme-elements.css">
+		<link rel="stylesheet" href="css/theme-blog.css">
+		<link rel="stylesheet" href="css/theme-shop.css">
+
+		<!-- Demo CSS -->
+		<link rel="stylesheet" href="css/demos/demo-auto-services.css">
+
+		<!-- Skin CSS -->
+		<link id="skinCSS" rel="stylesheet" href="css/skins/skin-auto-services.css">
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<style>
+			/* Custom Oxford Blue Theme */
+			.header-body {
+				background-color: #002248 !important;
+			}
+			.header-nav-main nav ul li a {
+				color: #ffffff !important;
+			}
+			.header-nav-main nav ul li a:hover {
+				color: #ffffff !important;
+				opacity: 0.8;
+			}
+			.header-top {
+				background-color: #ffffff !important;
+			}
+			.header-top .text-white {
+				color: #002248 !important;
+			}
+			.header-top a {
+				color: #002248 !important;
+			}
+			.header-top a:hover {
+				color: #002248 !important;
+				opacity: 0.8;
+			}
+			footer {
+				background-color: #002248 !important;
+			}
+			footer a {
+				color: #ffffff !important;
+			}
+			footer a:hover {
+				color: #ffffff !important;
+				opacity: 0.8;
+			}
+			footer h5, footer p, footer li {
+				color: #ffffff !important;
+			}
+			/* Main navbar text = white */
+			.header-nav-main nav > ul > li > a {
+				color: #ffffff !important;
+			}
+			/* Main navbar hover */
+			.header-nav-main nav > ul > li > a:hover {
+				color: #ffffff !important;
+				opacity: 0.8;
+			}
+			/* Dropdown box */
+			.dropdown-menu {
+				background: #ffffff !important;
+				border: 1px solid #ddd !important;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			/* Dropdown text = navbar blue */
+			.header-nav-main .dropdown-menu a,
+			.header-nav-main .dropdown-item {
+				color: #002248 !important;
+				background: #ffffff !important;
+				padding: 12px 20px;
+			}
+			/* Dropdown hover */
+			.header-nav-main .dropdown-menu a:hover,
+			.header-nav-main .dropdown-item:hover {
+				color: #002248 !important;
+				background: #f8f9fa !important;
+			}
+			/* Admin panel specific styles */
+			.admin-panel {
+				padding: 20px 0;
+				background: #f8f9fa;
+				min-height: calc(100vh - 200px);
+				position: relative;
+			}
+			.admin-header {
+				margin-bottom: 20px;
+				background: #ffffff;
+				padding: 20px;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 34, 72, 0.08);
+				border-left: 4px solid #002248;
+			}
+			.admin-header h2 {
+				color: #002248;
+				font-weight: 700;
+				margin-bottom: 5px;
+				font-size: 1.5rem;
+			}
+			.admin-header p {
+				color: #6c757d;
+				margin-bottom: 0;
+				font-size: 0.9rem;
+			}
+			.date-filter .card {
+				background: #ffffff;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 34, 72, 0.08);
+				border: none;
+				margin-bottom: 20px;
+			}
+			.date-filter .form-label {
+				color: #002248;
+				font-weight: 600;
+				margin-bottom: 5px;
+				font-size: 0.9rem;
+			}
+			.date-filter .form-control {
+				border: 2px solid #e9ecef;
+				border-radius: 8px;
+				padding: 10px;
+				font-size: 0.9rem;
+			}
+			.date-filter .form-control:focus {
+				border-color: #002248;
+				box-shadow: 0 0 0 3px rgba(0, 34, 72, 0.1);
+			}
+			.simple-stats .card {
+				background: #ffffff;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 34, 72, 0.08);
+				border: none;
+				transition: transform 0.2s ease;
+				margin-bottom: 15px;
+			}
+			.simple-stats .card:hover {
+				transform: translateY(-3px);
+			}
+			.simple-stats h4 {
+				color: #002248;
+				font-weight: 700;
+				font-size: 1.8rem;
+				margin-bottom: 0;
+			}
+			.simple-stats small {
+				color: #6c757d;
+				font-weight: 500;
+				font-size: 0.85rem;
+			}
+			.submission-table-responsive {
+				background: #ffffff;
+				border-radius: 12px;
+				overflow-x: auto;
+				box-shadow: 0 2px 10px rgba(0, 34, 72, 0.08);
+			}
+			.submission-table {
+				margin-bottom: 0;
+				min-width: 800px;
+			}
+			.submission-table thead {
+				background: #002248;
+				color: #ffffff;
+			}
+			.submission-table th {
+				font-weight: 600;
+				padding: 12px;
+				border: none;
+				text-transform: uppercase;
+				font-size: 0.75rem;
+				letter-spacing: 0.5px;
+			}
+			.submission-table tbody tr {
+				transition: background-color 0.2s ease;
+			}
+			.submission-table tbody tr:hover {
+				background-color: #f8f9fa;
+			}
+			.submission-table td {
+				padding: 12px;
+				vertical-align: middle;
+				border-bottom: 1px solid #e9ecef;
+				color: #333;
+				font-size: 0.9rem;
+			}
+			.submission-table td:last-child {
+				white-space: nowrap;
+			}
+			.submission-table tbody tr:last-child td {
+				border-bottom: none;
+			}
+			.btn-view {
+				background: #17a2b8;
+				color: #fff;
+				border: none;
+				padding: 8px;
+				border-radius: 50%;
+				margin-right: 5px;
+				font-weight: 600;
+				transition: all 0.2s ease;
+				font-size: 0.9rem;
+				width: 36px;
+				height: 36px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.btn-view:hover {
+				background: #138496;
+				transform: scale(1.1);
+			}
+			.btn-edit {
+				background: #ffc107;
+				color: #000;
+				border: none;
+				padding: 8px;
+				border-radius: 50%;
+				margin-right: 5px;
+				font-weight: 600;
+				transition: all 0.2s ease;
+				font-size: 0.9rem;
+				width: 36px;
+				height: 36px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.btn-edit:hover {
+				background: #e0a800;
+				transform: scale(1.1);
+			}
+			.btn-delete {
+				background: #dc3545;
+				color: #fff;
+				border: none;
+				padding: 8px;
+				border-radius: 50%;
+				font-weight: 600;
+				transition: all 0.2s ease;
+				font-size: 0.9rem;
+				width: 36px;
+				height: 36px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.btn-delete:hover {
+				background: #c82333;
+				transform: scale(1.1);
+			}
+			.btn-logout {
+				background: #6c757d;
+				color: #fff;
+				border: none;
+				padding: 8px 20px;
+				border-radius: 6px;
+				font-weight: 600;
+				transition: all 0.2s ease;
+				font-size: 0.9rem;
+			}
+			.btn-logout:hover {
+				background: #5a6268;
+			}
+			.login-form {
+				max-width: 400px;
+				margin: 50px auto;
+				padding: 30px;
+				background: #ffffff;
+				border-radius: 16px;
+				box-shadow: 0 4px 20px rgba(0, 34, 72, 0.1);
+			}
+			.login-form h2 {
+				color: #002248;
+				font-weight: 700;
+				margin-bottom: 10px;
+				text-align: center;
+				font-size: 1.5rem;
+			}
+			.login-form::before {
+				content: '';
+				display: block;
+				width: 80px;
+				height: 80px;
+				margin: 0 auto 20px;
+				background: #002248;
+				border-radius: 50%;
+				background-image: url('localimages/logo copy.png');
+				background-size: 60%;
+				background-position: center;
+				background-repeat: no-repeat;
+				box-shadow: 0 4px 15px rgba(0, 34, 72, 0.2);
+			}
+			.login-form .form-group label {
+				color: #002248;
+				font-weight: 600;
+				margin-bottom: 8px;
+				font-size: 0.9rem;
+			}
+			.login-form .form-control {
+				border: 2px solid #e9ecef;
+				border-radius: 8px;
+				padding: 12px;
+				transition: all 0.2s ease;
+				font-size: 0.95rem;
+			}
+			.login-form .form-control:focus {
+				border-color: #002248;
+				box-shadow: 0 0 0 3px rgba(0, 34, 72, 0.1);
+			}
+			.login-form .btn-primary {
+				background: #002248;
+				border: none;
+				padding: 12px;
+				border-radius: 8px;
+				font-weight: 600;
+				transition: all 0.2s ease;
+				font-size: 1rem;
+			}
+			.login-form .btn-primary:hover {
+				background: #003366;
+			}
+			.modal-content {
+				border-radius: 12px;
+				box-shadow: 0 4px 20px rgba(0, 34, 72, 0.15);
+				border: none;
+			}
+			.modal-header {
+				background: #002248;
+				color: #ffffff;
+				border-radius: 12px 12px 0 0;
+				padding: 15px;
+			}
+			.modal-header .modal-title {
+				color: #ffffff !important;
+			}
+			.modal-header .close {
+				color: #ffffff;
+				opacity: 0.8;
+				font-size: 1.5rem;
+				font-weight: bold;
+				line-height: 1;
+				text-shadow: none;
+				background: none;
+				border: none;
+				padding: 0;
+				cursor: pointer;
+				transition: opacity 0.2s ease;
+			}
+			.modal-header .close:hover {
+				opacity: 1;
+			}
+			.modal-header .close:focus {
+				outline: none;
+			}
+			.modal-body {
+				padding: 20px;
+			}
+			.modal-body .form-group label {
+				color: #333;
+				font-weight: 600;
+				margin-bottom: 8px;
+				font-size: 0.9rem;
+			}
+			.modal-body .form-control {
+				border: 2px solid #e9ecef;
+				border-radius: 8px;
+				padding: 10px;
+				transition: all 0.2s ease;
+			}
+			.modal-body .form-control:focus {
+				border-color: #002248;
+				box-shadow: 0 0 0 3px rgba(0, 34, 72, 0.1);
+			}
+			.btn-info {
+				background: #17a2b8;
+				border: none;
+				font-size: 0.8rem;
+				padding: 6px 12px;
+				border-radius: 6px;
+				transition: all 0.2s ease;
+				font-weight: 500;
+			}
+			.btn-info:hover {
+				background: #138496;
+			}
+			.badge {
+				padding: 6px 12px;
+				border-radius: 20px;
+				font-weight: 500;
+			}
+			
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.admin-panel {
+					padding: 15px 0;
+				}
+				.admin-header {
+					padding: 15px;
+					margin-bottom: 15px;
+				}
+				.admin-header h2 {
+					font-size: 1.3rem;
+				}
+				.admin-header p {
+					font-size: 0.85rem;
+				}
+				.date-filter .card {
+					padding: 15px;
+				}
+				.date-filter .row {
+					gap: 10px;
+				}
+				.date-filter .col-md-4,
+				.date-filter .col-md-2 {
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+				.simple-stats h4 {
+					font-size: 1.5rem;
+				}
+				.simple-stats small {
+					font-size: 0.8rem;
+				}
+				.submission-table th {
+					padding: 8px;
+					font-size: 0.7rem;
+				}
+				.submission-table td {
+					padding: 8px;
+					font-size: 0.85rem;
+				}
+				.btn-edit, .btn-delete {
+					padding: 5px 10px;
+					font-size: 0.8rem;
+					margin-right: 3px;
+				}
+				.btn-logout {
+					padding: 6px 15px;
+					font-size: 0.85rem;
+				}
+				.login-form {
+					max-width: 100%;
+					margin: 30px auto;
+					padding: 25px;
+				}
+				.login-form h2 {
+					font-size: 1.3rem;
+				}
+				.login-form::before {
+					width: 70px;
+					height: 70px;
+				}
+				.modal-body {
+					padding: 15px;
+				}
+			}
+			
+			@media (max-width: 576px) {
+				.admin-header h2 {
+					font-size: 1.2rem;
+				}
+				.simple-stats h4 {
+					font-size: 1.3rem;
+				}
+				.submission-table th,
+				.submission-table td {
+					padding: 6px;
+					font-size: 0.75rem;
+				}
+				.btn-edit, .btn-delete {
+					padding: 4px 8px;
+					font-size: 0.75rem;
+				}
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="body">
+			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 54, 'stickySetTop': '-54px', 'stickyChangeLogo': false}">
+				<div class="header-body header-body-bottom-border-fixed box-shadow-none border-top-0">
+					<div class="header-top header-top-small-minheight header-top-simple-border-bottom">
+						<div class="container py-2">
+							<div class="header-row justify-content-between">
+								<div class="header-column col-auto px-0">
+									<div class="header-row">
+										<div class="header-nav-top">
+											<ul class="nav nav-pills position-relative">
+												<li class="nav-item d-none d-sm-block">
+													<span class="d-flex align-items-center font-weight-medium ws-nowrap text-3 ps-0"><a href="mailto:info@shreeramaerospace.com" class="text-decoration-none text-white"><i class="icons icon-envelope font-weight-bold position-relative text-4 top-3 me-1"></i> info@shreeramaerospace.com</a></span>
+												</li>
+												<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
+													<span class="d-flex align-items-center font-weight-medium text-white ws-nowrap text-3"><i class="icons icon-clock font-weight-bold position-relative text-3 top-1 me-2"></i> Mon - Sat 9:00am - 6:00pm</span>
+												</li>
+												<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
+													<span class="d-flex align-items-center font-weight-medium text-white ws-nowrap text-3"><i class="icons icon-phone font-weight-bold position-relative text-3 top-1 me-2"></i> CALL US NOW</span>
+												</li>
+												<li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-sm-show">
+													<span class="d-flex align-items-center font-weight-medium text-white ws-nowrap text-3"><strong>+91 281 274 5855</strong></span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="header-column justify-content-end col-auto px-0 d-none d-md-flex">
+									<div class="header-row">
+										<nav class="header-nav-top">
+											<ul class="header-social-icons social-icons social-icons-clean social-icons-icon-gray social-icons-medium custom-social-icons-divider">
+												<li class="social-icons-facebook">
+													<a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+												</li>
+												<li class="social-icons-x">
+													<a href="http://www.x.com/" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+												</li>
+												<li class="social-icons-linkedin">
+													<a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="header-container container">
+						<div class="header-row">
+							<div class="header-column w-100">
+								<div class="header-row justify-content-between">
+									<div class="header-logo z-index-2 col-lg-2 px-0">
+										<a href="index.html">
+											<img alt="SHREERAM AEROSPACE" width="180" height="70" data-sticky-width="120" data-sticky-height="58" data-sticky-top="84" src="localimages/logo copy.png" style="object-fit: contain;">
+										</a>
+									</div>
+									<div class="header-nav header-nav-links justify-content-end pe-lg-4 me-lg-3">
+										<div class="header-nav-main header-nav-main-arrows header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1">
+											<nav class="collapse">
+												<ul class="nav nav-pills" id="mainNav">
+													<li><a href="index.html" class="nav-link">Home</a></li>
+													<li class="dropdown">
+														<a href="demo-auto-services-about-us.html" class="nav-link dropdown-toggle">About Us</a>
+														<ul class="dropdown-menu">
+															<li><a href="demo-auto-services-about-us.html#company-overview" class="dropdown-item">Company Overview</a></li>
+															<li><a href="demo-auto-services-about-us.html#board-of-director" class="dropdown-item">Board of Director</a></li>
+															<li><a href="demo-auto-services-about-us.html#leadership" class="dropdown-item">Leadership</a></li>
+														</ul>
+													</li>
+													<li class="dropdown">
+														<a href="demo-auto-services-capabilities.html" class="nav-link dropdown-toggle">Capabilities</a>
+														<ul class="dropdown-menu">
+															<li><a href="demo-auto-services-capabilities.html#ultra-high-precision-machining" class="dropdown-item">Ultra High Precision Machining</a></li>
+															<li><a href="demo-auto-services-capabilities.html#prototype-development" class="dropdown-item">Prototype Development</a></li>
+															<li><a href="demo-auto-services-capabilities.html#quality-inspection" class="dropdown-item">Quality Inspection</a></li>
+															<li><a href="demo-auto-services-capabilities.html#fabrication" class="dropdown-item">Fabrication</a></li>
+															<li><a href="demo-auto-services-capabilities.html#certification" class="dropdown-item">Certification</a></li>
+															<li><a href="demo-auto-services-capabilities.html#training-skill-development" class="dropdown-item">Training & Skill Development</a></li>
+														</ul>
+													</li>
+													<li><a href="demo-auto-services-products.html" class="nav-link">Products</a></li>
+													<li><a href="demo-auto-services-blog.html" class="nav-link">News & Insights</a></li>
+													<li><a href="#" class="nav-link">Careers</a></li>
+													<li><a href="demo-auto-services-contact.html" class="nav-link">Contact Us</a></li>
+													<li><a href="admin.html" class="nav-link active">Admin</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+									<div class="header-nav-feature d-inline-flex position-relative top-3 px-2">
+										<a href="#contact" class="btn btn-primary text-white text-2 px-3 py-2 rounded-pill text-decoration-none">
+											Get Quote
+										</a>
+									</div>
+									<div class="d-flex col-auto pe-0 ps-0 ps-xl-3">
+										<div class="header-nav-features ps-0 ms-1">
+											
+										</div>
+									</div>
+									<button class="btn header-btn-collapse-nav ms-4" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+										<i class="fas fa-bars"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<div role="main" class="main">
+				<!-- Login Section -->
+				<div id="login-section" class="container">
+					<div class="login-form">
+						<h2 class="text-center mb-4">Admin Login</h2>
+						<form id="login-form">
+							<div class="form-group mb-3">
+								<label for="username">Username</label>
+								<input type="text" class="form-control" id="username" required>
+							</div>
+							<div class="form-group mb-3">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password" required>
+							</div>
+							<button type="submit" class="btn btn-primary w-100">Login</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- Admin Panel Section (Hidden by default) -->
+				<div id="admin-panel" class="admin-panel container" style="display: none;">
+					<div class="admin-header">
+						<div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+							<div>
+								<h2>Admin Panel</h2>
+								<p class="text-muted">Manage user form submissions</p>
+							</div>
+							<button class="btn-logout" onclick="logout()">Logout</button>
+						</div>
+					</div>
+
+					<!-- Search and Date Filter -->
+					<div class="date-filter mb-4">
+						<div class="card">
+							<div class="card-body">
+								<div class="row align-items-end">
+									<div class="col-md-4">
+										<label class="form-label">Search</label>
+										<input type="text" class="form-control" id="search-input" placeholder="Search by ID, name, email, phone, subject..." onkeyup="searchSubmissions()">
+									</div>
+									<div class="col-md-2">
+										<label class="form-label">From Date</label>
+										<input type="date" class="form-control" id="from-date">
+									</div>
+									<div class="col-md-2">
+										<label class="form-label">To Date</label>
+										<input type="date" class="form-control" id="to-date">
+									</div>
+									<div class="col-md-2">
+										<button class="btn btn-primary w-100" onclick="filterByDate()">Filter</button>
+									</div>
+									<div class="col-md-2">
+										<button class="btn btn-secondary w-100" onclick="resetFilter()">Reset</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Simple Stats -->
+					<div class="simple-stats mb-4">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body text-center">
+										<h4 class="mb-1" id="total-submissions">0</h4>
+										<small class="text-muted">Total Submissions</small>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body text-center">
+										<h4 class="mb-1" id="total-files">0</h4>
+										<small class="text-muted">Files Uploaded</small>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-body text-center">
+										<h4 class="mb-1" id="today-submissions">0</h4>
+										<small class="text-muted">Today's Submissions</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="submission-table-responsive">
+						<table class="table submission-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Phone</th>
+									<th>Subject</th>
+									<th>Message</th>
+									<th>Date</th>
+									<th>Files</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody id="submissions-body">
+								<tr>
+									<td colspan="9" class="text-center">No submissions yet</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Edit Modal -->
+				<div id="edit-modal" class="modal" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Submission</h5>
+								<button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close" onclick="$('#edit-modal').modal('hide')">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form id="edit-form">
+									<input type="hidden" id="edit-id">
+									<div class="form-group mb-3">
+										<label for="edit-name">Name</label>
+										<input type="text" class="form-control" id="edit-name" required>
+									</div>
+									<div class="form-group mb-3">
+										<label for="edit-email">Email</label>
+										<input type="email" class="form-control" id="edit-email" required>
+									</div>
+									<div class="form-group mb-3">
+										<label for="edit-phone">Phone</label>
+										<input type="text" class="form-control" id="edit-phone">
+									</div>
+									<div class="form-group mb-3">
+										<label for="edit-subject">Subject</label>
+										<input type="text" class="form-control" id="edit-subject">
+									</div>
+									<div class="form-group mb-3">
+										<label for="edit-message">Message</label>
+										<textarea class="form-control" id="edit-message" rows="4"></textarea>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" onclick="$('#edit-modal').modal('hide')">Cancel</button>
+								<button type="button" class="btn btn-primary" id="save-edit">Save Changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- View Modal -->
+				<div id="view-modal" class="modal" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">View Submission</h5>
+								<button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close" onclick="$('#view-modal').modal('hide')">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div id="view-content">
+									<div class="form-group mb-3">
+										<label><strong>ID:</strong></label>
+										<p id="view-id"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Name:</strong></label>
+										<p id="view-name"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Email:</strong></label>
+										<p id="view-email"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Phone:</strong></label>
+										<p id="view-phone"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Subject:</strong></label>
+										<p id="view-subject"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Message:</strong></label>
+										<p id="view-message"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Date:</strong></label>
+										<p id="view-date"></p>
+									</div>
+									<div class="form-group mb-3">
+										<label><strong>Files:</strong></label>
+										<div id="view-files"></div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" onclick="$('#view-modal').modal('hide')">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer id="footer" class="border-0 mt-0">
+				<div class="container py-5">
+					<div class="row py-3">
+						<div class="col-md-4 mb-5 mb-md-0">
+							<div class="feature-box flex-column flex-xl-row align-items-center align-items-lg-start text-center text-lg-start">
+								<div class="feature-box-icon bg-transparent mb-4 mb-xl-0 p-0">
+									<img width="45" src="img/demos/auto-services/icons/icon-location.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light position-relative bottom-3'}" />
+								</div>
+								<div class="feature-box-info line-height-1 ps-2">
+									<span class="d-block font-weight-bold text-color-light text-5 mb-2">Address</span>
+									<p class="text-color-light text-4 line-height-4 font-weight-light mb-0">Plot No. 2320 / 1B & 2321, Road No. 8F, Gate-2, G.I.D.C. Metoda, Rajkot 360021</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5 mb-md-0">
+							<div class="feature-box flex-column flex-xl-row align-items-center align-items-lg-start text-center text-lg-start">
+								<div class="feature-box-icon bg-transparent mb-4 mb-xl-0 p-0">
+									<i class="icons icon-phone text-9 text-color-light position-relative top-4"></i>
+								</div>
+								<div class="feature-box-info line-height-1 ps-2">
+									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">Call Us Now</span>
+									<a href="tel:+912812745855" class="text-color-light text-4 line-height-7 text-decoration-none">+91 281 274 5855</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="feature-box flex-column flex-xl-row align-items-center align-items-lg-start text-center text-lg-start">
+								<div class="feature-box-icon bg-transparent mb-4 mb-xl-0 p-0">
+									<img width="45" src="img/demos/auto-services/icons/car-winch.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light position-relative bottom-3'}" />
+								</div>
+								<div class="feature-box-info line-height-1 ps-xl-3">
+									<span class="d-block font-weight-bold text-color-light text-5 pb-1 mb-1">Email Us</span>
+									<a href="mailto:info@shreeramaerospace.com" class="text-color-light text-4 line-height-7 text-decoration-none">info@shreeramaerospace.com</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="bg-light opacity-2 my-0">
+				<div class="container pb-5">
+					<div class="row text-center text-md-start py-4 my-5">
+						<div class="col-md-6 col-lg-3 align-self-center text-center text-md-start text-lg-center mb-5 mb-lg-0">
+							<a href="index.html" class="text-decoration-none">
+								<img src="localimages/logo copy.png" class="img-fluid" alt="SHREERAM AEROSPACE" style="max-width: 200px; height: auto;" />
+							</a>
+							<p class="text-color-light text-3-5 mt-3 mb-0">SHREERAM AEROSPACE & DEFENCE LLP</p>
+						</div>
+						<div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Quick Links</h5>
+							<ul class="list list-unstyled mb-0">
+								<li class="mb-0"><a href="index.html#vision-mission">Vision &amp; Mission</a></li>
+								<li class="mb-0"><a href="index.html#who-we-are">Who We Are</a></li>
+								<li class="mb-0"><a href="index.html#solutions">What We Do</a></li>
+								<li class="mb-0"><a href="index.html#core-expertise">Core Expertise</a></li>
+								<li class="mb-0"><a href="index.html#expertise">Our Expertise</a></li>
+								<li class="mb-0"><a href="demo-auto-services-contact.html#contact">Contact Us</a></li>
+								<li class="mb-0"><a href="admin.html">Admin Panel</a></li>
+							</ul>
+						</div>
+						<div class="col-md-6 col-lg-2 mb-5 mb-md-0">
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Services</h5>
+							<ul class="list list-unstyled mb-0">
+								<li class="mb-0"><a href="#">Raw Material Sourcing</a></li>
+								<li class="mb-0"><a href="#">Structure Fabrication</a></li>
+								<li class="mb-0"><a href="#">Ultra Precision Machining</a></li>
+								<li class="mb-0"><a href="#">Assembly &amp; Testing</a></li>
+							</ul>
+						</div>
+						<div class="col-md-6 col-lg-3 offset-lg-1">
+							<h5 class="text-transform-none font-weight-bold text-color-light text-4-5 mb-4">Follow Us</h5>
+							<ul class="social-icons social-icons-medium">
+								<li class="social-icons-instagram">
+									<a href="http://www.instagram.com/" class="no-footer-css" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+								</li>
+								<li class="social-icons-x mx-2">
+									<a href="http://www.twitter.com/" class="no-footer-css" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+								</li>
+								<li class="social-icons-facebook">
+									<a href="http://www.facebook.com/" class="no-footer-css" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+								</li>
+								<li class="social-icons-linkedin mx-2">
+									<a href="http://www.linkedin.com/" class="no-footer-css" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright bg-light py-4">
+					<div class="container py-2">
+						<div class="row">
+							<div class="col">
+								<p class="text-center text-3 mb-0">SHREERAM AEROSPACE & DEFENCE LLP © 2025. All Rights Reserved. | <a href="#" class="text-decoration-none">Privacy Policy</a> | <a href="#" class="text-decoration-none">Terms & Conditions</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- Vendor -->
+		<script src="vendor/plugins/js/plugins.min.js"></script>
+		<!-- Theme Base, Components and Settings -->
+		<script src="js/theme.js"></script>
+
+		<script>
+			// Global variable to store all submissions
+			let allSubmissions = [];
+
+			// Admin Login Logic
+			document.getElementById('login-form').addEventListener('submit', function(e) {
+				e.preventDefault();
+				const username = document.getElementById('username').value;
+				const password = document.getElementById('password').value;
+				
+				const formData = new FormData();
+				formData.append('username', username);
+				formData.append('password', password);
+				
+				fetch('php/api/login.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.json())
+				.then(result => {
+					if (result.success) {
+						document.getElementById('login-section').style.display = 'none';
+						document.getElementById('admin-panel').style.display = 'block';
+						loadSubmissions();
+					} else {
+						alert(result.message);
+					}
+				})
+				.catch(error => {
+					console.error('Login error:', error);
+					alert('Login error');
+				});
+			});
+
+			// Logout function
+			function logout() {
+				if (confirm('Are you sure you want to logout?')) {
+					document.getElementById('admin-panel').style.display = 'none';
+					document.getElementById('login-section').style.display = 'block';
+					document.getElementById('login-form').reset();
+				}
+			}
+
+			// Load submissions from backend
+			function loadSubmissions() {
+	fetch('php/api/get-submissions.php')
+		.then(response => response.json())
+		.then(result => {
+
+	console.log(result);
+
+	const submissions = Array.isArray(result)
+		? result
+		: (result.data || []);
+
+	// Store all submissions globally
+	allSubmissions = submissions;
+
+	// Display all submissions initially
+	displaySubmissions(submissions);
+	})
+		.catch(error => {
+			console.error('Error loading submissions:', error);
+
+			const tbody = document.getElementById('submissions-body');
+
+			tbody.innerHTML =
+				'<tr><td colspan="9" class="text-center">Error loading submissions</td></tr>';
+		});
+}
+
+			// Display submissions in table
+			function displaySubmissions(submissions) {
+				const tbody = document.getElementById('submissions-body');
+				tbody.innerHTML = '';
+
+				// Update stats
+				document.getElementById('total-submissions').textContent = submissions.length;
+				
+				let totalFiles = 0;
+				let todayCount = 0;
+				const today = new Date().toISOString().split('T')[0];
+				
+				submissions.forEach(sub => {
+					if (sub.files && sub.files.length > 0) {
+						totalFiles += sub.files.length;
+					}
+					if (sub.timestamp && sub.timestamp.startsWith(today)) {
+						todayCount++;
+					}
+				});
+				
+				document.getElementById('total-files').textContent = totalFiles;
+				document.getElementById('today-submissions').textContent = todayCount;
+
+				if (submissions.length === 0) {
+					tbody.innerHTML =
+						'<tr><td colspan="9" class="text-center">No submissions found</td></tr>';
+					return;
+				}
+
+				submissions.forEach(sub => {
+				const row = document.createElement('tr');
+
+				let filesHtml = '';
+
+				if (sub.files && sub.files.length > 0) {
+					sub.files.forEach(file => {
+						const fileSize = (file.file_size / (1024 * 1024)).toFixed(2);
+
+						filesHtml += `
+							<a href="${file.file_path}" 
+							   target="_blank" 
+							   class="btn btn-sm btn-info mb-1">
+								${file.file_name} (${fileSize}MB)
+							</a><br>
+						`;
+					});
+				} else {
+					filesHtml = 'No files';
+				}
+
+				row.innerHTML = `
+					<td>${sub.id}</td>
+					<td>${sub.name || 'N/A'}</td>
+					<td>${sub.email || 'N/A'}</td>
+					<td>${sub.phone || 'N/A'}</td>
+					<td>${sub.subject || 'N/A'}</td>
+					<td>${sub.message ? sub.message.substring(0, 50) + '...' : 'N/A'}</td>
+					<td>${sub.timestamp || 'N/A'}</td>
+					<td>${filesHtml}</td>
+					<td>
+						<button class="btn-view" onclick="viewSubmission(${sub.id})" title="View">
+							<i class="fas fa-eye"></i>
+						</button>
+						<button class="btn-edit" onclick="editSubmission(${sub.id})" title="Edit">
+							<i class="fas fa-edit"></i>
+						</button>
+						<button class="btn-delete" onclick="deleteSubmission(${sub.id})" title="Delete">
+							<i class="fas fa-trash"></i>
+						</button>
+					</td>
+				`;
+
+				tbody.appendChild(row);
+			});
+			}
+
+			// Search submissions
+			function searchSubmissions() {
+				const searchQuery = document.getElementById('search-input').value.toLowerCase();
+				
+				if (!searchQuery) {
+					displaySubmissions(allSubmissions);
+					return;
+				}
+
+				const filtered = allSubmissions.filter(sub => {
+					const id = sub.id ? sub.id.toString() : '';
+					const name = sub.name ? sub.name.toLowerCase() : '';
+					const email = sub.email ? sub.email.toLowerCase() : '';
+					const phone = sub.phone ? sub.phone.toLowerCase() : '';
+					const subject = sub.subject ? sub.subject.toLowerCase() : '';
+					const message = sub.message ? sub.message.toLowerCase() : '';
+					
+					return id.includes(searchQuery) ||
+						   name.includes(searchQuery) ||
+						   email.includes(searchQuery) ||
+						   phone.includes(searchQuery) ||
+						   subject.includes(searchQuery) ||
+						   message.includes(searchQuery);
+				});
+
+				displaySubmissions(filtered);
+			}
+
+			// Filter submissions by date
+			function filterByDate() {
+				const fromDate = document.getElementById('from-date').value;
+				const toDate = document.getElementById('to-date').value;
+				const searchQuery = document.getElementById('search-input').value.toLowerCase();
+
+				if (!fromDate && !toDate && !searchQuery) {
+					alert('Please select at least one filter option');
+					return;
+				}
+
+				let filtered = allSubmissions;
+
+				// Apply date filter
+				if (fromDate || toDate) {
+					filtered = filtered.filter(sub => {
+						if (!sub.timestamp) return false;
+						
+						const submissionDate = sub.timestamp.split(' ')[0]; // Get date part only
+						
+						if (fromDate && toDate) {
+							return submissionDate >= fromDate && submissionDate <= toDate;
+						} else if (fromDate) {
+							return submissionDate >= fromDate;
+						} else if (toDate) {
+							return submissionDate <= toDate;
+						}
+						return true;
+					});
+				}
+
+				// Apply search filter
+				if (searchQuery) {
+					filtered = filtered.filter(sub => {
+						const id = sub.id ? sub.id.toString() : '';
+						const name = sub.name ? sub.name.toLowerCase() : '';
+						const email = sub.email ? sub.email.toLowerCase() : '';
+						const phone = sub.phone ? sub.phone.toLowerCase() : '';
+						const subject = sub.subject ? sub.subject.toLowerCase() : '';
+						const message = sub.message ? sub.message.toLowerCase() : '';
+						
+						return id.includes(searchQuery) ||
+							   name.includes(searchQuery) ||
+							   email.includes(searchQuery) ||
+							   phone.includes(searchQuery) ||
+							   subject.includes(searchQuery) ||
+							   message.includes(searchQuery);
+					});
+				}
+
+				displaySubmissions(filtered);
+			}
+
+			// Reset filter
+			function resetFilter() {
+				document.getElementById('from-date').value = '';
+				document.getElementById('to-date').value = '';
+				document.getElementById('search-input').value = '';
+				displaySubmissions(allSubmissions);
+			}
+
+			// View submission
+			function viewSubmission(id) {
+				fetch('php/api/get-submissions.php')
+					.then(response => response.json())
+					.then(submissions => {
+						const submission = submissions.find(sub => sub.id === id);
+						if (submission) {
+							document.getElementById('view-id').textContent = submission.id || 'N/A';
+							document.getElementById('view-name').textContent = submission.name || 'N/A';
+							document.getElementById('view-email').textContent = submission.email || 'N/A';
+							document.getElementById('view-phone').textContent = submission.phone || 'N/A';
+							document.getElementById('view-subject').textContent = submission.subject || 'N/A';
+							document.getElementById('view-message').textContent = submission.message || 'N/A';
+							document.getElementById('view-date').textContent = submission.timestamp || 'N/A';
+
+							// Display files
+							const filesDiv = document.getElementById('view-files');
+							if (submission.files && submission.files.length > 0) {
+								let filesHtml = '';
+								submission.files.forEach(file => {
+									const fileSize = (file.file_size / (1024 * 1024)).toFixed(2);
+									filesHtml += `
+										<a href="${file.file_path}" target="_blank" class="btn btn-sm btn-info mb-1">
+											${file.file_name} (${fileSize}MB)
+										</a><br>
+									`;
+								});
+								filesDiv.innerHTML = filesHtml;
+							} else {
+								filesDiv.innerHTML = 'No files';
+							}
+
+							$('#view-modal').modal('show');
+						} else {
+							alert('Submission not found');
+						}
+					})
+					.catch(error => {
+						console.error('Error fetching submission:', error);
+						alert('Error fetching submission');
+					});
+			}
+
+			// Edit submission
+			function editSubmission(id) {
+				fetch('php/api/get-submissions.php')
+					.then(response => response.json())
+					.then(submissions => {
+						const submission = submissions.find(sub => sub.id === id);
+						if (submission) {
+							document.getElementById('edit-id').value = id;
+							document.getElementById('edit-name').value = submission.name || '';
+							document.getElementById('edit-email').value = submission.email || '';
+							document.getElementById('edit-phone').value = submission.phone || '';
+							document.getElementById('edit-subject').value = submission.subject || '';
+							document.getElementById('edit-message').value = submission.message || '';
+
+							$('#edit-modal').modal('show');
+						} else {
+							alert('Submission not found');
+						}
+					})
+					.catch(error => {
+						console.error('Error fetching submission:', error);
+						alert('Error fetching submission');
+					});
+			}
+
+			// Delete submission
+			function deleteSubmission(id) {
+				if (confirm('Are you sure you want to delete this submission?')) {
+					const formData = new FormData();
+					formData.append('id', id);
+					
+					fetch('php/api/delete-submission.php', {
+						method: 'POST',
+						body: formData
+					})
+					.then(response => response.json())
+					.then(result => {
+						if (result.success) {
+							alert('Submission deleted successfully');
+							loadSubmissions();
+						} else {
+							alert('Error: ' + result.message);
+						}
+					})
+					.catch(error => {
+						console.error('Error deleting submission:', error);
+						alert('Error deleting submission');
+					});
+				}
+			}
+
+			// Save edit
+			document.getElementById('save-edit').addEventListener('click', function() {
+				const formData = new FormData();
+				formData.append('id', document.getElementById('edit-id').value);
+				formData.append('name', document.getElementById('edit-name').value);
+				formData.append('email', document.getElementById('edit-email').value);
+				formData.append('phone', document.getElementById('edit-phone').value);
+				formData.append('subject', document.getElementById('edit-subject').value);
+				formData.append('message', document.getElementById('edit-message').value);
+				
+				fetch('php/api/update-submission.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.json())
+				.then(result => {
+					if (result.success) {
+						alert('Changes saved successfully');
+						$('#edit-modal').modal('hide');
+						loadSubmissions();
+					} else {
+						alert('Error: ' + result.message);
+					}
+				})
+				.catch(error => {
+					console.error('Error updating submission:', error);
+					alert('Error updating submission');
+				});
+			});
+		</script>
+	</body>
+</html>
