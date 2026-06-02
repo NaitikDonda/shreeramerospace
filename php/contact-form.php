@@ -72,7 +72,7 @@ $uniqueId = uniqid();
 // ============================================================================
 // STEP 3: Validate and Upload File (Optional)
 // ============================================================================
-$maxFileSize = 50 * 1024 * 1024; // 50MB in bytes
+$maxFileSize = 25 * 1024 * 1024; // 25MB in bytes
 $allowedExtensions = ['pdf', 'dwg', 'dxf', 'jpg', 'jpeg', 'png', 'doc', 'docx', 'xls', 'xlsx'];
 $uploadedFilePath = null;
 $uploadedFileName = null;
@@ -350,13 +350,17 @@ try {
 
 	// Step 2 (Optional) - If you don't receive the email, try to configure the parameters below:
 
-	$mail->IsSMTP();                                         // Set mailer to use SMTP
-	$mail->Host = 'smtp.gmail.com';				       // Specify main and backup server
-	$mail->SMTPAuth = true;                                  // Enable SMTP authentication
-	$mail->Username = 'dondanaitik@gmail.com';                    // SMTP username
-	$mail->Password = 'iiwa ulge ncot dmna';                              // SMTP password (use App Password)
-	$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // Enable SSL encryption
-	$mail->Port = 465;   								       // TCP port to connect to (SSL)
+	// For GoDaddy, use PHP mail() instead of SMTP
+	$mail->IsMail();
+
+	// If using SMTP (recommended for better deliverability):
+	// $mail->IsSMTP();                                         // Set mailer to use SMTP
+	// $mail->Host = 'smtp.gmail.com';				       // Specify main and backup server
+	// $mail->SMTPAuth = true;                                  // Enable SMTP authentication
+	// $mail->Username = 'dondanaitik@gmail.com';                    // SMTP username
+	// $mail->Password = 'zwba ucli kski nkxy';                              // SMTP password (use App Password)
+	// $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;        // Enable SSL encryption
+	// $mail->Port = 465;   								       // TCP port to connect to (SSL)
 
 	$mail->AddAddress($email);	 						       // Add another recipient
 
@@ -397,13 +401,16 @@ try {
 		try {
 			$userMail = new PHPMailer(true);
 			$userMail->SMTPDebug = $debug;
-			$userMail->IsSMTP();
-			$userMail->Host = 'smtp.gmail.com';
-			$userMail->SMTPAuth = true;
-			$userMail->Username = 'dondanaitik@gmail.com';
-			$userMail->Password = 'iiwa ulge ncot dmna';
-			$userMail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-			$userMail->Port = 465;
+			// For GoDaddy, use PHP mail() instead of SMTP
+			$userMail->IsMail();
+			// If using SMTP:
+			// $userMail->IsSMTP();
+			// $userMail->Host = 'smtp.gmail.com';
+			// $userMail->SMTPAuth = true;
+			// $userMail->Username = 'dondanaitik@gmail.com';
+			// $userMail->Password = 'zwba ucli kski nkxy';
+			// $userMail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+			// $userMail->Port = 465;
 			
 			$userMail->AddAddress($userEmail);
 			$userMail->SetFrom('dondanaitik@gmail.com', 'Shreeram Aerospace & Defence LLP');
