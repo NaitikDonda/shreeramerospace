@@ -46,71 +46,38 @@ window.theme.fn = {
 
 	intObs(selector, functionName, intObsOptions, alwaysObserve) {
 		const $el = document.querySelectorAll(selector);
-		let intersectionObserverOptions = {
-			rootMargin: '0px 0px 200px 0px'
-		};
-
-		if (Object.keys(intObsOptions).length) {
-			intersectionObserverOptions = $.extend(intersectionObserverOptions, intObsOptions);
-		}
-
-		const observer = new IntersectionObserver(entries => {
-            for (const entry of entries) {
-                if (entry.intersectionRatio > 0) {
-					if (typeof functionName === 'string') {
-						const func = Function('return ' + functionName)();
-					} else {
-						const callback = functionName;
-
-						callback.call($(entry.target));
-					}
-
-					// Unobserve
-					if (!alwaysObserve) {
-						observer.unobserve(entry.target);
-					}
-
-				}
-            }
-        }, intersectionObserverOptions);
-
+		
+		// Execute immediately without lazy loading
 		$($el).each(function() {
-			observer.observe($(this)[0]);
+			if (typeof functionName === 'string') {
+				const func = Function('return ' + functionName)();
+			} else {
+				const callback = functionName;
+				callback.call($(this));
+			}
 		});
 	},
 
 	intObsInit(selector, functionName) {
 		const $el = document.querySelectorAll(selector);
-		const intersectionObserverOptions = {
-			rootMargin: '200px'
-		};
-
-		const observer = new IntersectionObserver(entries => {
-            for (const entry of entries) {
-                if (entry.intersectionRatio > 0) {
-                    const $this = $(entry.target);
-                    let opts;
-
-                    const pluginOptions = theme.fn.getOptions($this.data('plugin-options'));
-                    if (pluginOptions)
-						opts = pluginOptions;
-
-                    theme.fn.execPluginFunction(functionName, $this, opts);
-
-                    // Unobserve
-                    observer.unobserve(entry.target);
-                }
-            }
-        }, intersectionObserverOptions);
-
+		
+		// Execute immediately without lazy loading
 		$($el).each(function() {
-			observer.observe($(this)[0]);
+			const $this = $(this);
+			let opts;
+
+			const pluginOptions = theme.fn.getOptions($this.data('plugin-options'));
+			if (pluginOptions)
+				opts = pluginOptions;
+
+			theme.fn.execPluginFunction(functionName, $this, opts);
 		});
 	},
 
 	dynIntObsInit(selector, functionName, pluginDefaults) {
 		const $el = document.querySelectorAll(selector);
 
+		// Execute immediately without lazy loading
 		$($el).each(function() {
             const $this = $(this);
             let opts;
@@ -120,30 +87,7 @@ window.theme.fn = {
 				opts = pluginOptions;
 
             const mergedPluginDefaults = theme.fn.mergeOptions(pluginDefaults, opts);
-
-            const intersectionObserverOptions = {
-				rootMargin: theme.fn.getRootMargin(functionName, mergedPluginDefaults),
-				threshold: 0
-			};
-
-            if (!mergedPluginDefaults.forceInit) {
-
-				const observer = new IntersectionObserver(entries => {
-                    for (const entry of entries) {
-                        if (entry.intersectionRatio > 0) {
-							theme.fn.execPluginFunction(functionName, $this, mergedPluginDefaults);
-
-							// Unobserve
-							observer.unobserve(entry.target);
-						}
-                    }
-                }, intersectionObserverOptions);
-
-				observer.observe($this[0]);
-
-			} else {
-				theme.fn.execPluginFunction(functionName, $this, mergedPluginDefaults);
-			}
+			theme.fn.execPluginFunction(functionName, $this, mergedPluginDefaults);
         });
 	},
 
@@ -6033,45 +5977,15 @@ window.theme.fn = {
 			const self = this;
 
 			const $el = document.querySelectorAll( selector );
-			let intersectionObserverOptions = {
-				rootMargin: '0px 0px 200px 0px'
-			};
-
-			if( Object.keys(intObsOptions).length ) {
-				intersectionObserverOptions = $.extend(intersectionObserverOptions, intObsOptions);
-			}
-
-			const observer = new IntersectionObserver(entries => {
-                for (const entry of entries) {
-                    if (entry.intersectionRatio > 0 ) {
-						if( typeof functionName === 'string' ) {
-							const func = Function( 'return ' + functionName )();
-						} else {
-							const callback = functionName;
-
-							callback.call( $(entry.target) );
-						}
-
-						// Unobserve
-						if( !alwaysObserve ) {
-							observer.unobserve(entry.target);
-						}
-
-					} else {
-						if( firstLoad == false ) {
-							if( index == self.sectionIDs.length - 1 ) {
-								$('#header .header-nav .nav > li a').removeClass('active');
-								$('#header .header-nav .nav > li a[href="#'+ entry.target.id +'"]').parent().prev().find('a').addClass('active');
-							}
-						}
-						firstLoad = false;
-
-					}
-                }
-            }, intersectionObserverOptions);
 			
+			// Execute immediately without lazy loading
 			$( $el ).each(function(){
-				observer.observe( $(this)[0] );
+				if( typeof functionName === 'string' ) {
+					const func = Function( 'return ' + functionName )();
+				} else {
+					const callback = functionName;
+					callback.call( $(this) );
+				}
 			});
 
 			return this;
